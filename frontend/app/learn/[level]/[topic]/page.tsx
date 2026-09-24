@@ -1,0 +1,4 @@
+export default function Topic({params}:{params:{level:string;topic:string}}){
+ const title=params.topic.split('-').map(x=>x[0]?.toUpperCase()+x.slice(1)).join(' ');
+ return <main className="mx-auto max-w-4xl p-8"><p className="text-sm text-violet-600">{params.level}</p><h1 className="mt-2 text-4xl font-bold">{title}</h1><div className="card mt-8 p-7"><h2 className="text-xl font-semibold">Concept</h2><p className="mt-3 text-gray-600">This topic connects mathematical intuition, formulas, calculation, visualization and real-world applications.</p><h2 className="mt-8 text-xl font-semibold">Formula</h2><p className="mt-3 rounded-lg bg-gray-50 p-4 font-mono">ax² + bx + c = 0</p></div></main>
+}

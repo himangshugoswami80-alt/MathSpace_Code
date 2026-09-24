@@ -1,0 +1,3 @@
+import Link from 'next/link';
+const topics=['Quadratic Equations','Functions','Derivatives','Vectors','Matrices','Probability'];
+export default function Learn(){return <main className="mx-auto max-w-6xl p-8"><h1 className="text-3xl font-bold">Learning</h1><div className="mt-6 grid gap-4 md:grid-cols-3">{topics.map(t=><Link className="card p-6 hover:border-violet-400" href={'/learn/class-10/'+encodeURIComponent(t.toLowerCase().replaceAll(' ','-'))} key={t}><h2 className="font-semibold">{t}</h2><p className="mt-2 text-sm text-gray-500">Concept, formula, examples and applications.</p></Link>)}</div></main>}

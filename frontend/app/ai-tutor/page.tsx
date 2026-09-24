@@ -1,0 +1,4 @@
+'use client';
+import {useState} from 'react';
+export default function Tutor(){const [q,setQ]=useState('');const [a,setA]=useState('');
+async function ask(){setA('Thinking...');try{const r=await fetch('http://127.0.0.1:8000/api/v1/ai/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q})});const d=await r.json();setA(d.answer)}catch{setA('Backend is not running. Start FastAPI on port 8000.')}}return <main className="mx-auto max-w-3xl p-8"><h1 className="text-3xl font-bold">AI Tutor</h1><textarea value={q} onChange={e=>setQ(e.target.value)} className="mt-6 h-40 w-full rounded-xl border p-4" placeholder="Ask a mathematics question..."/><button onClick={ask} className="mt-3 rounded-xl bg-violet-600 px-5 py-3 text-white">Ask</button>{a&&<div className="card mt-6 p-5 whitespace-pre-wrap">{a}</div>}</main>}
